@@ -1,0 +1,147 @@
+/* Variáveis e Configurações Globais */
+:root {
+    --bg-color: #faf9f6;
+    --card-bg: #ffffff;
+    --text-main: #2d2d2d;
+    --text-muted: #666666;
+    --accent-color: #d4a373;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Cabeçalho / Hero */
+.hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('WhatsApp\ Image\ 2026-07-27\ at\ 18.19.32.jpeg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+/* Container Principal da Galeria */
+.gallery-container {
+    max-width: 800px;
+    margin: -40px auto 0; /* Sobrepõe levemente o hero em telas maiores */
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Cartões de Memória */
+.memory-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Imagens */
+.image-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.memory-card:hover .image-wrapper img {
+    transform: scale(1.03);
+}
+
+/* Conteúdo de Texto */
+.text-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.text-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.date {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.text-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* Responsividade Avançada para Celulares Pequenos */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    
+    .image-wrapper {
+        height: 280px;
+    }
+    
+    .text-content {
+        padding: 20px;
+    }
+    
+    .text-content h2 {
+        font-size: 1.5rem;
+    }
+}
