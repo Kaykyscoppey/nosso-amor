@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo Juntos | Nosso Amor</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="memorias.html">Memórias</a>
+        <a href="playlist.html">Playlist</a>
+        
+    </nav>
+
+    <main class="page-content">
+        <h1>Tempo Juntos</h1>
+        <div class="contador"> 
+         <strong id="dias">0</strong> 
+         <span>dias</span>
+         <strong id="horas">0</strong> 
+         <span>horas</span>
+         <strong id="minutos">0</strong>       
+         <span>minutos</span>
+         <strong id="segundos">0</strong> 
+         <span>segundos</span>
+        </div>
+
+        <script>
+            const inicio = localStorage.getItem('inicioDoNossoAmor');
+
+            function atualizarContador(){
+                if (!inicio){
+                    return;
+                }
+                const diferenca = Date.now() - new Date(inicio).getTime();
+                const segundosTotais = Math.floor(diferenca /1000);
+
+                const dias = Math.floor(segundosTotais /86400);
+                const horas = Math.floor((segundosTotais % 86400) /3600);  
+                const minutos = Math.floor((segundosTotais % 3600)/60);
+                const segundos= segundosTotais % 60;
+
+                document.querySelector('#dias').textContent = dias;
+                document.querySelector('#horas').textContent = horas;
+                document.querySelector('#minutos').textContent = minutos;
+                document.querySelector('#segundos').textContent = segundos;
+            }
+
+            atualizarContador();
+            setInterval(atualizarContador, 1000);
+        </script>
+    </main>
+
+    <main class="Relogio">
+        
+    </main>
+</body>
+</html>

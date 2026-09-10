@@ -1,0 +1,666 @@
+/* Variáveis e Configurações Globais */
+:root {
+    --bg-color: #faf9f6;
+    --card-bg: #ffffff;
+    --text-main: #2d2d2d;
+    --text-muted: #666666;
+    --accent-color: #d4a373;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+/* Tela de confirmacao exibida quando o QR CODE e escaneado */
+
+.question-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display:grid;
+    place-items: center;
+    background:#faf9f6
+}
+
+.question-card {
+    padding: 40px 25px;
+    text-align: center;
+    background:white;
+    border: radius 16px;
+    box-shadow: 0 10px 30px #0002;
+}
+.question-card button {
+    margin: 20px 6px;
+    padding: 12px 28px;
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    cursor:pointer;
+    font-weight: bold;
+}
+
+#sim{
+    background: #7b9e72;
+}
+
+#nao{
+    background: #b87878;
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contador {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    gap: 6px;
+}
+
+.contador strong {
+    display: block;
+    padding: 14px 4px;
+    border: 1px solid #d4a373;
+    border-radius: 8px #d4a373 ;
+    font-size: 1.4rem;
+    
+}
+
+.nova-foto{
+    display:block;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+/* Cabeçalho / Hero */
+.hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('WhatsApp\ Image\ 2026-07-27\ at\ 18.19.32.jpeg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+/* Menu de navegação */
+.menu {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 18px 20px;
+    background: var(--card-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.menu a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.menu a:hover {
+    color: var(--accent-color);
+}
+
+.page-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    text-align: center;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.page-content h1 {
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+    color: var(--text-main);
+}
+
+.counter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 32px 0;
+}
+
+.counter-unit {
+    padding: 18px 8px;
+    border: 1px solid rgba(212, 163, 115, 0.35);
+    border-radius: 8px;
+}
+
+.counter-unit strong,
+.counter-unit span {
+    display: block;
+}
+
+.counter-unit strong {
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+}
+
+.counter-unit span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.back-link {
+    color: var(--text-main);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--accent-color);
+}
+
+/* Página da playlist */
+.playlist-page {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.playlist-card {
+    display: grid;
+    grid-template-columns: minmax(260px, 360px) 1fr;
+    align-items: center;
+    gap: 42px;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.playlist-cover-wrapper {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #eee5dc;
+}
+
+.playlist-cover {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.playlist-content {
+    text-align: left;
+}
+
+.playlist-label {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.playlist-content h1 {
+    margin-bottom: 16px;
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+}
+
+.playlist-description {
+    max-width: 440px;
+    margin-bottom: 28px;
+    color: var(--text-muted);
+}
+
+.spotify-button {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 8px;
+    background: #1db954;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.spotify-button:hover {
+    transform: translateY(-2px);
+    background: #168d40;
+}
+
+/* Container Principal da Galeria */
+.gallery-container {
+    max-width: 800px;
+    margin: -40px auto 0; /* Sobrepõe levemente o hero em telas maiores */
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Cartões de Memória */
+.memory-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Imagens */
+.image-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.memory-card:hover .image-wrapper img {
+    transform: scale(1.03);
+}
+
+/* Conteúdo de Texto */
+.text-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.text-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.date {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.text-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* Responsividade Avançada para Celulares Pequenos */
+@media (max-width: 480px) {
+    .menu {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+
+    .question-card h1 {
+        font-size: 2rem;
+    }
+
+    .counter {
+        gap: 6px;
+    }
+
+    .counter-unit strong {
+        font-size: 1.5rem;
+    }
+    
+    .image-wrapper {
+        height: 280px;
+    }
+    
+    .text-content {
+        padding: 20px;
+    }
+    
+    .text-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .playlist-page {
+        margin: 24px auto;
+        padding: 15px;
+    }
+
+    .playlist-card {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 20px;
+    }
+
+    .playlist-content {
+        text-align: center;
+    }
+
+    .playlist-content h1 {
+        font-size: 2rem;
+    }
+
+    .playlist-description {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+}
+
+.adicionarnovasfotos{
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 20px;
+    background: var(--bg-color);
+}
+
+.adicionarnovasfotos button{
+    padding: 12px 18px;
+    border:none;
+    border-radius:8px;
+    background-color: var(--accent-color);
+    color:white;
+    cursor:pointer;
+    font-family:var(--font-body);
+    font-weight: 600;
+    transition: background-color 0.3s ease,  transform 0.2s ease;
+}
+
+.adicionarnovasfotos button:hover {
+    background-color: #b98250;
+    transform: translateY(-2px);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(45, 45, 45, 0.55);
+}
+
+.modal-open {
+    display: grid;
+}
+
+.modal-content {
+    position: relative;
+    width: min(100%, 520px);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 32px 26px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(45, 45, 45, 0.2);
+}
+
+.modal-content h2 {
+    margin-bottom: 22px;
+    font-family: var(--font-heading);
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: 0;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+#formMemoria label {
+    display: block;
+    margin: 14px 0 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#formMemoria input[type="text"],
+#formMemoria input[type="file"],
+#formMemoria textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid rgba(212, 163, 115, 0.55);
+    border-radius: 8px;
+    color: var(--text-main);
+    font: inherit;
+}
+
+#formMemoria textarea {
+    resize: vertical;
+}
+
+.modal-submit {
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent-color);
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}
+
+.modal-submit:hover {
+    background: #b98250;
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 58vh;
+        min-height: 420px;
+    }
+
+    .hero-content {
+        padding: 0 8px;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .menu {
+        padding: 15px 12px;
+    }
+
+    .adicionarnovasfotos {
+        justify-content: center;
+        padding: 14px 16px;
+    }
+
+    .adicionarnovasfotos button {
+        width: min(100%, 260px);
+    }
+
+    .gallery-container {
+        margin: 0 auto;
+        padding: 12px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .adicionarnovasfotos {
+        justify-content: center;
+    }
+}
+
+#campoFoto::file-selector-button {
+    padding: 10px 18px;
+    margin-right: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#campoFoto::file-selector-button:hover {
+    background-color: #b98250;
+}
+
+#campoFoto {
+    color: var(--text-muted);
+    font-family: var(--font-body);
+}
+
+.botao-foto {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+.botao-foto:hover {
+    background-color: #b98250;
+}
+
+
+.modal {
+    display: none;
+}
+
+.modal-aberto {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.modal-content {
+    position: relative;
+    width: min(100%, 520px);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px 25px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    text-align: center;
+}
+
+#fecharModal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+#formMemoria label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+#formMemoria input,
+#formMemoria textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    font: inherit;
+}
+
+#formMemoria textarea {
+    resize: vertical;
+}
+
+#formMemoria button[type="submit"] {
+    width: 100%;
+    margin-top: 22px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}

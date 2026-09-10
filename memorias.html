@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memórias | Nosso Amor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+        <header class="hero">
+        <div class="hero-content">
+            <h1>Nosso Amor</h1>
+            <p>Ele é diferente de qualquer sentimento que eu já vivi um dia, e isso me deixa ansioso por nunca saber onde vai dar, 
+                porém tenho um sentimento de certeza de que esse será o melhor e o meu último amor.</p>
+        </div>
+    </header>
+
+    <div class="menu">
+        <a href="#memories">Memórias</a>
+        <a href="tempo-juntos.html">Tempo Juntos</a>
+        <a href="playlist.html">Playlist</a>
+        
+       
+    </div>
+
+    <div class="adicionarnovasfotos">
+        <button id="botaoAdicionar" type="button">Adicionar Nova Foto</button>
+    </div>
+
+    <div class="modal" id="modalMemoria">
+        <div class="modal-content">
+            <button id="fecharModal" type="button">X</button>
+
+            <h2>Adicionar uma memória</h2>
+
+            <form id="formMemoria">
+                <label for="campoFoto">Foto</label>
+                <input
+                id="campoFoto"
+                type="file"
+                accept="image/*"
+                required
+                >
+                <label for="campoTitulo">Título</label>
+                <input
+                id="campoTitulo"
+                type="text"
+                placeholder="Digite o título"
+                required
+                >
+
+                <label for="campoData">Data</label>
+                <input
+                id="campoData"
+                type="date"
+                 required
+                >
+
+                <label for="campoComentario">Comentário</label>
+                <textarea
+                id="campoComentario"
+                placeholder="Digite o comentário"
+                required
+                ></textarea>
+
+                
+
+                <button type="submit">Criar Memória</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const botaoAdicionar =document.querySelector('#botaoAdicionar');
+        const fecharModal = document.querySelector('#fecharModal');
+        
+
+        botaoAdicionar.addEventListener('click', () =>{
+            modalMemoria.classList.add('modal-aberto');
+        });
+
+        fecharModal.addEventListener('click', () =>{
+            modalMemoria.classList.remove('modal-aberto');
+        });
+    </script>
+
+
+
+    
+    <!-- Seção de Galeria de Memórias -->
+  <main class="gallery-container" id="galeria">
+
+    
+    </main> <!-- Fechamento da main corrigido para englobar todas as fotos -->
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Feito com ❤️ para você.</p>
+    </footer>
+</body>
+</html>

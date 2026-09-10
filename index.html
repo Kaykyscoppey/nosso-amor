@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para uma tipografia elegante -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <main class="question-screen">
+        <section class="question-card">
+            <p>Uma pergunta para você</p>
+            <h1>Ela disse sim ?</h1>
+
+            <button id="sim">Sim</button>
+            <button id="nao">Não</button>
+            <p id="mensagem"></p>
+        </section>
+        <script>
+            document.querySelector('#sim').addEventListener('click', () => {
+    localStorage.setItem('inicioDoNossoAmor',
+        new Date().toISOString()
+    );
+    window.location.href= 'tempo-juntos.html';
+});
+
+document.querySelector('#nao').addEventListener('click', () => {
+        document.querySelector('#mensagem').textContent =
+            'Pense com carinho e tente novamente. ❤️';
+
+});
+        </script>
+    </main>
+
+<main class="page-content">
+    <h1>Tempo Juntos</h1>
+    <div class="contador"> 
+        </div>
+</main>
+    <!-- Cabeçalho / Capa -->
+
+
+</body>
+</html>
