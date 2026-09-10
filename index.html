@@ -15,25 +15,30 @@
             <p>Uma pergunta para você</p>
             <h1>Ela disse sim ?</h1>
 
-            <button id="sim">Sim</button>
-            <button id="nao">Não</button>
+            <button id="sim" type="button">Sim</button>
+            <button id="nao" type="button">Não</button>
             <p id="mensagem"></p>
         </section>
-        <script>
-            document.querySelector('#sim').addEventListener('click', () => {
-    localStorage.setItem('inicioDoNossoAmor',
-        new Date().toISOString()
-    );
-    window.location.href= 'tempo-juntos.html';
-});
-
-document.querySelector('#nao').addEventListener('click', () => {
-        document.querySelector('#mensagem').textContent =
-            'Pense com carinho e tente novamente. ❤️';
-
-});
-        </script>
     </main>
+
+    <main class="senha-screen" id="senhaScreen">
+        <section class="senha-card">
+            <h1>Agora falta ultima coisa</h1>
+            <p>Digite a senha para acessar o site</p>
+            <input 
+            id="campoSenha"
+            type="password"
+            placeholder="Digite a senha">
+
+            <button id="botaoSenha" type="button">
+                Continuar
+            </button>
+
+            <p id="mensagemSenha"></p>
+        </section>
+    </main>
+
+    
 
 <main class="page-content">
     <h1>Tempo Juntos</h1>
@@ -41,6 +46,45 @@ document.querySelector('#nao').addEventListener('click', () => {
         </div>
 </main>
     <!-- Cabeçalho / Capa -->
+
+    <script>
+        const telaPergunta = document.querySelector('.question-screen');
+        const telaSenha = document.querySelector('.senha-screen');
+        const botaoSim = document.querySelector('#sim');
+        const botaoNao = document.querySelector('#nao');
+        const botaoSenha = document.querySelector('#botaoSenha');
+        const campoSenha = document.querySelector('#campoSenha');
+        const mensagem = document.querySelector('#mensagem');
+        const mensagemSenha = document.querySelector('#mensagemSenha');
+
+        botaoSim.addEventListener('click', () => {
+            telaPergunta.style.display = 'none';
+            telaSenha.classList.add('visivel');
+            campoSenha.focus();
+        });
+
+        botaoNao.addEventListener('click', () => {
+            mensagem.textContent = 'Pense com carinho e tente novamente. ❤️';
+        });
+
+        botaoSenha.addEventListener('click', () => {
+            const senhaCorreta = 'COLOQUE_A_SENHA_AQUI';
+
+            if (campoSenha.value === senhaCorreta) {
+                localStorage.setItem(
+                    'inicioDoNossoAmor',
+                    new Date().toISOString()
+                );
+
+                window.location.href = 'tempo-juntos.html';
+                return;
+            }
+
+            mensagemSenha.textContent = 'Senha incorreta. Tente novamente.';
+            campoSenha.value = '';
+            campoSenha.focus();
+        });
+    </script>
 
 
 </body>
