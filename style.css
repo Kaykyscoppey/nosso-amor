@@ -37,7 +37,7 @@ body {
     padding: 40px 25px;
     text-align: center;
     background:white;
-    border: radius 16px;
+    border-radius: 16px;
     box-shadow: 0 10px 30px #0002;
 }
 .question-card button {
@@ -663,4 +663,60 @@ footer {
     cursor: pointer;
     font: inherit;
     font-weight: 600;
+}
+
+
+.senha-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 8;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: #faf9f6;
+}
+
+.senha-screen.visivel {
+    display: grid;
+}
+
+.senha-card {
+    width: min(100%, 420px);
+    padding: 40px 25px;
+    text-align: center;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px #0002;
+}
+
+.senha-card h1 {
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+}
+
+.senha-card input {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    font: inherit;
+}
+
+.senha-card button {
+    margin-top: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}
+
+#mensagemSenha {
+    min-height: 24px;
+    margin-top: 15px;
+    color: #b87878;
 }
