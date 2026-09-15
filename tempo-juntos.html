@@ -29,19 +29,27 @@
         </div>
 
         <script>
-            const inicio = localStorage.getItem('inicioDoNossoAmor');
+            const CHAVE_INICIO = 'inicioDoNossoAmor';
+            const DATA_INICIO_PADRAO = '2026-09-14T21:30:00';
+
+            if (!localStorage.getItem(CHAVE_INICIO)) {
+                localStorage.setItem(CHAVE_INICIO, DATA_INICIO_PADRAO);
+            }
+
+            const inicio = localStorage.getItem(CHAVE_INICIO);
 
             function atualizarContador(){
                 if (!inicio){
                     return;
                 }
-                const diferenca = Date.now() - new Date(inicio).getTime();
-                const segundosTotais = Math.floor(diferenca /1000);
 
-                const dias = Math.floor(segundosTotais /86400);
-                const horas = Math.floor((segundosTotais % 86400) /3600);  
-                const minutos = Math.floor((segundosTotais % 3600)/60);
-                const segundos= segundosTotais % 60;
+                const diferenca = Date.now() - new Date(inicio).getTime();
+                const segundosTotais = Math.max(0, Math.floor(diferenca / 1000));
+
+                const dias = Math.floor(segundosTotais / 86400);
+                const horas = Math.floor((segundosTotais % 86400) / 3600);
+                const minutos = Math.floor((segundosTotais % 3600) / 60);
+                const segundos = segundosTotais % 60;
 
                 document.querySelector('#dias').textContent = dias;
                 document.querySelector('#horas').textContent = horas;
