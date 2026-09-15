@@ -56,6 +56,16 @@
         const campoSenha = document.querySelector('#campoSenha');
         const mensagem = document.querySelector('#mensagem');
         const mensagemSenha = document.querySelector('#mensagemSenha');
+        const CHAVE_INICIO = 'inicioDoNossoAmor';
+        const DATA_INICIO_PADRAO = '2026-09-14T21:30:00';
+
+        function garantirInicioDoNossoAmor() {
+            const inicioSalvo = localStorage.getItem(CHAVE_INICIO);
+
+            if (!inicioSalvo) {
+                localStorage.setItem(CHAVE_INICIO, DATA_INICIO_PADRAO);
+            }
+        }
 
         botaoSim.addEventListener('click', () => {
             telaPergunta.style.display = 'none';
@@ -71,12 +81,8 @@
             const senhaCorreta = '14092026';
 
             if (campoSenha.value === senhaCorreta) {
-                localStorage.setItem(
-                    'inicioDoNossoAmor',
-                    new Date().toISOString()
-                );
-
-                window.location.href = 'tempo-juntos.html';
+                garantirInicioDoNossoAmor();
+                window.location.href = 'memorias.html';
                 return;
             }
 
